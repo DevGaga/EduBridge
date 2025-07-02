@@ -8,13 +8,17 @@ body {
   margin-left: 120px;
   max-width: 1000px;
 }
-
 .heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: cornsilk;
   padding: 10px 20px;
+}
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: green;
 }
 
 .header {
@@ -26,7 +30,7 @@ body {
 }
 
 .image {
-  width: 100px;
+  width: 300px;
   height: auto;
 }
 
