@@ -1,56 +1,54 @@
-/* main.css */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f7fdf8;
-    margin: 0;
-    padding: 0;
-    color: #222;
-  }
-  
-  .navbar {
-    background-color: #ffffff;
-    padding: 1em 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: green;
-    font-weight: bold;
-  }
-  
-  .hero {
-    background: linear-gradient(to right, #4caf50, #81c784);
-    color: white;
-    padding: 3em;
-    text-align: center;
-  }
-  
-  .hero .btn {
-    background: white;
-    color: green;
-    padding: 0.8em 1.5em;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    padding: 2em;
-  }
-  
-  .card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.05);
-    padding: 1em;
-    width: 300px;
-  }
-  
+  font-family: sans-serif;
+  margin: 0;
+  color: green;
+}
+
+.container {
+  margin-left: 120px;
+  max-width: 1000px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: cornsilk;
+  padding: 10px 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #eafcea;
+}
+
+.image {
+  width: 100px;
+  height: auto;
+}
+
+.opportunities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.opportunity {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.learn-more-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
