@@ -1,37 +1,202 @@
+/* ==== GLOBAL STYLES ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f7fdf9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  background-color: #e0f5e9;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccebd7;
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+  color: green;
+}
+
+.navbar nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #066d3a;
+  font-weight: bold;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+/* ==== SIGNUP SECTION ==== */
+.signup-section {
+  max-width: 400px;
+  background: white;
+  margin: 3em auto;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.signup-section h2 {
+  text-align: center;
+  color: green;
+  margin-bottom: 1.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+form input,
+form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+form button {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #045e26;
+}
+
+/* ==== LOGIN SECTION ==== */
 .login-section {
-    max-width: 400px;
-    margin: 2em auto;
-    padding: 2em;
-    background: #f0fdf4;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  }
-  
-  .login-section h2 {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  #login-form {
-    display: flex;
+  max-width: 400px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #f0fdf4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.login-section h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+#login-form button {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==== DASHBOARD STYLES ==== */
+.dashboard {
+  padding: 2em;
+}
+
+.post-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+}
+
+.opportunity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.opportunity-card {
+  background: white;
+  border-left: 5px solid green;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.opportunity-card h3 {
+  margin-top: 0;
+}
+
+.card-actions {
+  margin-top: 1em;
+}
+
+.card-actions button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: orange;
+  color: white;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 600px) {
+  .navbar {
     flex-direction: column;
-    gap: 1em;
+    align-items: flex-start;
   }
-  
-  #login-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
+
+  .navbar nav a {
+    margin-left: 0;
+    margin-top: 10px;
   }
-  
-  #login-form button {
-    padding: 10px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+
+  .signup-section,
+  .login-section,
+  .dashboard {
+    margin: 1.5em 1em;
+    padding: 1.5em;
   }
-  
+
+  .opportunity-list {
+    grid-template-columns: 1fr;
+  }
+}
