@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up | EduBridge</title>
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="user_login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="signup-section">
+    <h2>Create Your Free Account</h2>
+    <form id="user-signup-form">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("user-signup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Account created successfully! (This will be connected to Django later)");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
