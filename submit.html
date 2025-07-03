@@ -1,0 +1,33 @@
+<!-- submit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Opportunity | EduBridge</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="opportunities.html">Browse</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="submit-section">
+    <h2>Post a New Opportunity</h2>
+    <form id="submit-form">
+      <input type="text" placeholder="Opportunity Title" name="title" required />
+      <input type="text" placeholder="Organization Name" name="org" required />
+      <input type="date" name="deadline" required />
+      <textarea placeholder="Opportunity Description" name="description" rows="5" required></textarea>
+      <input type="url" name="link" placeholder="Application Link" required />
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script src="scripts/submit.js"></script>
+</body>
+</html>

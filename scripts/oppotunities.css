@@ -1,0 +1,36 @@
+.page-heading {
+    text-align: center;
+    padding: 2em 1em;
+    background-color: #f0fff4;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .opportunity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 2em;
+  }
+  
+  .opportunity-card {
+    background: white;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid green;
+  }
+  
+  .opportunity-card h3 {
+    margin-top: 0;
+  }
+  
+  .learn-more-btn {
+    display: inline-block;
+    margin-top: 1em;
+    background-color: green;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
