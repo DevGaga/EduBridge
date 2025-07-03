@@ -1,0 +1,55 @@
+.dashboard {
+    padding: 2em;
+  }
+  
+  .post-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    cursor: pointer;
+  }
+  
+  .opportunity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .opportunity-card {
+    background: white;
+    border-left: 5px solid green;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .opportunity-card h3 {
+    margin-top: 0;
+  }
+  
+  .card-actions {
+    margin-top: 1em;
+  }
+  
+  .card-actions button {
+    margin-right: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: orange;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+  }
+  
