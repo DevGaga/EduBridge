@@ -36,4 +36,4 @@ const myOpportunities = [
   function deleteOpportunity(index) {
     alert(`Delete functionality for opportunity #${index} coming soon`);
   }
-  
+s  

@@ -1,0 +1,37 @@
+.login-section {
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 2em;
+    background: #f0fdf4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  .login-section h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  #login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  #login-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+  }
+  
+  #login-form button {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

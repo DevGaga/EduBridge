@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | EduBridge</title>
+  <link rel="stylesheet" href="style/signup.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="signup-section">
+    <h2>Create an Institution Account</h2>
+    <form id="signup-form">
+      <input type="text" name="name" placeholder="Institution Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <select name="type" required>
+        <option value="">Select Institution Type</option>
+        <option value="university">University</option>
+        <option value="college">College</option>
+        <option value="company">Company</option>
+        <option value="ngo">NGO</option>
+      </select>
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>
+
+  <script src="scripts/signup.js"></script>
+</body>
+</html>
