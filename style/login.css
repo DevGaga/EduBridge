@@ -200,3 +200,15 @@ form button:hover {
     grid-template-columns: 1fr;
   }
 }
+.student
+_div{
+  margin-top: 10px;
+}
+.bnt{
+  padding: 10px;
+  border-radius: 4px;
+  background-color: greenyellow;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
