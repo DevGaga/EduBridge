@@ -40,6 +40,10 @@ nav a {
   gap: 20px;
   padding: 20px 0;
 }
+.submit-section{
+  width: 1000px;
+  margin-left: 125px;
+}
 
 .opportunity {
   padding: 20px;
