@@ -1,0 +1,21 @@
+from django.db import models
+
+# Create your models here.
+from django.db import models
+from student.models import StudentProfile
+from opportunities.models import Opportunity
+
+class Application(models.Model):
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE)
+    opportunity = models.ForeignKey(Opportunity, on_delete=models.CASCADE)
+    cover_letter = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=[
+        ('submitted', 'Submitted'),
+        ('reviewed', 'Reviewed'),
+        ('accepted', 'Accepted'),
+        ('rejected', 'Rejected'),
+    ], default='submitted')
+
+    def __str__(self):
+        return f"{self.student.full_name} - {self.opportunity.title}"
