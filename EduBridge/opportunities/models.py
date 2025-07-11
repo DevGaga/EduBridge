@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-from institutions.models import Institution
+from institution.models import Institution
 
 class Opportunity(models.Model):
     TYPE_CHOICES = [
