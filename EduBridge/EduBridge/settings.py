@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'EduBridge.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'EduBridgeDB',
+        'USER': 'root',
+        'PASSWORD': '0962594409@Rapheal',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -109,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'CAT'
 
 USE_I18N = True
 
