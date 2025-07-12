@@ -1,11 +1,25 @@
 from django import forms
-from opportunities.models import Opportunity
+from .models import Opportunity
 
 class OpportunityForm(forms.ModelForm):
     class Meta:
         model = Opportunity
-        fields = ['title', 'description', 'opportunity_type', 'location', 'deadline', 'institution']
+        fields = [
+            'institution',
+            'title',
+            'opportunity_type',  # This must match the model exactly
+            'description',
+            'requirements',
+            'location',
+            'deadline'
+        ]
+
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),
-            'deadline': forms.DateInput(attrs={'type': 'date'})
+            'requirements': forms.Textarea(attrs={'rows': 3}),
+            'deadline': forms.DateInput(attrs={'type': 'date'}),
+        }
+
+        labels = {
+            'opportunity_type': 'Type of Opportunity',
         }

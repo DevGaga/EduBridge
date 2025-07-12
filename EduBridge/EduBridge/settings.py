@@ -23,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a^yi$x6i4xdqpe@^essdlz-)5jp$5(&^4(wd!v9_*p66b21g@1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+   
 DEBUG = True
+
+AUTH_USER_MODEL = 'accounts.User'
 
 ALLOWED_HOSTS = []
 
@@ -38,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'student',
-    'institution',
+    'students',  
+    'institutions',
     'opportunities',
     'applications', 
 ]

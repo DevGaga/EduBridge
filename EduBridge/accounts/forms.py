@@ -21,7 +21,7 @@ class InstitutionSignupForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.role = 'institution'
+        user.role = 'institutions'
         if commit:
             user.save()
         return user
