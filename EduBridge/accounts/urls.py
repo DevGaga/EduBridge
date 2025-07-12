@@ -9,7 +9,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='accounts:login'), name='logout'),
     
     path('register/student/', views.StudentRegisterView.as_view(), name='register_student'),
-    path('register/institution/', views.InstitutionRegisterView.as_view(), name='register_institution'),
+    path('register/institutions/', views.InstitutionRegisterView.as_view(), name='register_institution'),
 
     path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
 ]

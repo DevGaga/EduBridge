@@ -1,11 +1,12 @@
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | EduBridge</title>
-  <link rel="stylesheet" href="EduBridge\accounts\static\css\login.css" />
+  <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" />
 </head>
 <body>
   <header class="navbar">
@@ -24,12 +25,12 @@
 
     <h2>signup as a student, graduate or school leaver</h2>
     <div class="student_div"> <nav><button type="link" class="bnt">  
-        <a href="student.html">Sign Up</a>
+        <a href="EduBridge\students\templates\stundents\student.html">Sign Up</a>
     </button></nav> OR login <nav><button type="link" class="bnt">  
-        <a href="student_login.html">login</a>
+        <a href="EduBridge\accounts\templates\accounts\student_login.html">login</a>
     </button></nav></div>
   </main>
 
-  <script src="scripts/login.js"></script>
+  <script src="EduBridge\accounts\static\css\scripts\login.js"></script>
 </body>
 </html>
