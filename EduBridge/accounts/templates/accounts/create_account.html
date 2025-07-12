@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,25 +11,26 @@
   <header class="navbar">
     <h1>EduBridge</h1>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="{% url 'home' %}">Home</a>
     </nav>
   </header>
 
   <main class="login-section">
-    <h2>sigup as Institution</h2>
-    <div> <nav><button type="link" class="bnt">  <a href="EduBridge\accounts\templates\accounts\signup.html">Sign Up</a>
-    </button></nav> OR Login <nav><button type="link" class="bnt">  
-        <a href="EduBridge\accounts\templates\accounts\login.html">login</a>
-    </button></nav></div>
+    <h2>Sign up as Institution</h2>
+    <div class="button-group">
+      <a href="{% url 'institution_signup' %}" class="btn">Sign Up</a>
+      <span>OR</span>
+      <a href="{% url 'institution_login' %}" class="btn">Login</a>
+    </div>
 
-    <h2>signup as a student, graduate or school leaver</h2>
-    <div class="student_div"> <nav><button type="link" class="bnt">  
-        <a href="EduBridge\students\templates\stundents\student.html">Sign Up</a>
-    </button></nav> OR login <nav><button type="link" class="bnt">  
-        <a href="EduBridge\accounts\templates\accounts\student_login.html">login</a>
-    </button></nav></div>
+    <h2>Sign up as a Student, Graduate or School Leaver</h2>
+    <div class="button-group">
+      <a href="{% url 'student_signup' %}" class="btn">Sign Up</a>
+      <span>OR</span>
+      <a href="{% url 'student_login' %}" class="btn">Login</a>
+    </div>
   </main>
 
-  <script src="EduBridge\accounts\static\css\scripts\login.js"></script>
+  <script src="{% static 'accounts/scripts/login.js' %}"></script>
 </body>
 </html>

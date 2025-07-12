@@ -1,22 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Dashboard | EduBridge</title>
-  <link rel="stylesheet" href="style/main.css" />
+  <title>Student Dashboard | EduBridge</title>
+  <link rel="stylesheet" href="{% static 'account/css/file/main.css' %}" />
 </head>
 <body>
   <header class="navbar">
     <h1>EduBridge</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Browse</a>
-      <a href="user_login.html">Logout</a>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'opportunities:opportunity_list' %}">Browse</a>
+      <a href="{% url 'logout' %}">Logout</a>
     </nav>
   </header>
 
   <main class="dashboard">
-    <h2>Welcome back!</h2>
+    <h2>Welcome back, {{ user.username }}!</h2>
     <p>You can bookmark opportunities here (feature coming soon).</p>
   </main>
 </body>

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduBridge - Internships & Scholarships</title>
+  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+</head>
+<body>
+  <header>
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="#internships">Internships</a>
+      <a href="#scholarships">Scholarships</a>
+      <a href="#contact">Contact</a>
+      <a href="{% url 'accounts:login' %}">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Connecting You to Opportunities</h2>
+    <p>Your gateway to top internships and scholarships worldwide.</p>
+    <a href="#internships" class="btn-primary">Explore Internships</a>
+  </section>
+
+  <main>
+    <section id="internships">
+      <h3>Featured Internships</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Software Development Intern</h4>
+          <p>Join a leading tech company and gain hands-on experience in software engineering. Remote options available.</p>
+        </div>
+        <div class="card">
+          <h4>Marketing Intern</h4>
+          <p>Work with a dynamic marketing team to build your skills in digital campaigns and social media management.</p>
+        </div>
+        <div class="card">
+          <h4>Data Analyst Intern</h4>
+          <p>Analyze real datasets and contribute to actionable insights for a finance firm. Prior knowledge of Excel required.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="scholarships">
+      <h3>Top Scholarships</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Global Leaders Scholarship</h4>
+          <p>Full tuition and stipend for students showing exceptional leadership potential. Deadline: Oct 31.</p>
+        </div>
+        <div class="card">
+          <h4>STEM Excellence Award</h4>
+          <p>Supports students pursuing degrees in Science, Technology, Engineering, and Math. Renewable for 4 years.</p>
+        </div>
+        <div class="card">
+          <h4>Community Impact Scholarship</h4>
+          <p>For students actively involved in community service and development projects. Application open year-round.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>Contact us: info@edubridge.org | +260 123 456 789</p>
+    <p>&copy; 2025 EduBridge. All rights reserved.</p>
+  </footer>
+</body>
+</html>
