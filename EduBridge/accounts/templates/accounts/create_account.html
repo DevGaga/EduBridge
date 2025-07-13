@@ -18,16 +18,16 @@
   <main class="login-section">
     <h2>Sign up as Institution</h2>
     <div class="button-group">
-      <a href="{% url 'accounts: register_institution' %}" class="btn">Sign Up</a>
+      <a href="{% url 'accounts:register_institution' %}" class="btn">Sign Up</a>
       <span>OR</span>
-      <a href="{% url 'institution_login' %}" class="btn">Login</a>
+      <a href="{% url 'accounts:institution_login' %}" class="btn">Login</a>
     </div>
 
     <h2>Sign up as a Student, Graduate or School Leaver</h2>
     <div class="button-group">
-      <a href="{% url 'accounts: student_signup' %}" class="btn">Sign Up</a>
+      <a href="{% url 'accounts:student_signup' %}" class="btn">Sign Up</a>
       <span>OR</span>
-      <a href="{% url 'accounts: student_login' %}" class="btn">Login</a>
+      <a href="{% url 'accounts:student_login' %}" class="btn">Login</a>
     </div>
   </main>
 

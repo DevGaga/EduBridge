@@ -12,13 +12,13 @@
     <h1>EduBridge</h1>
     <nav>
       <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'accounts: institution_login' %}">Login</a>
+      <a href="{% url 'accounts:institution_login' %}">Login</a>
     </nav>
   </header>
 
   <main class="signup-section">
     <h2>Create an Institution Account</h2>
-    <form method="post" action="{% url 'institution_signup' %}" id="signup-form">
+    <form method="post" action="{% url 'accounts:institution_signup' %}" id="signup-form">
       {% csrf_token %}
       <input type="text" name="name" placeholder="Institution Name" required />
       <input type="email" name="email" placeholder="Email Address" required />

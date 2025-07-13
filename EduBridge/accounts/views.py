@@ -6,11 +6,18 @@ from django.views.generic import CreateView
 from .models import User
 from .forms import StudentSignupForm, InstitutionSignupForm
 
-# Custom Login View
+# Custom account selection page (not actual login)
 class CustomLoginView(LoginView):
-    template_name = 'accounts/create_account.html'  # Fixed typo: was 'create_account.html'
+    template_name = 'accounts/create_account.html'
 
-# Role-Based Dashboard Redirect
+# Login views
+class InstitutionLoginView(LoginView):
+    template_name = 'accounts/institution_login.html'
+
+class StudentLoginView(LoginView):
+    template_name = 'accounts/student_login.html'
+
+# Dashboard redirect based on role
 @login_required
 def dashboard_redirect(request):
     if request.user.role == 'student':
@@ -18,20 +25,20 @@ def dashboard_redirect(request):
     elif request.user.role == 'institutions':
         return redirect('institutions:dashboard')
     else:
-        return redirect('admin:index')  # default for superusers/admin
+        return redirect('admin:index')
 
-# Student Signup View
+# Student signup view
 class StudentRegisterView(CreateView):
     model = User
     form_class = StudentSignupForm
-    template_name = 'accounts/student_signup.html'  # Correct template
+    template_name = 'accounts/student_signup.html'
 
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
         return redirect('students:dashboard')
 
-# Institution Signup View
+# Institution signup view
 class InstitutionRegisterView(CreateView):
     model = User
     form_class = InstitutionSignupForm
