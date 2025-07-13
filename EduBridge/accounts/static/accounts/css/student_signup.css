@@ -1,44 +1,125 @@
+/* Reset defaults */
+body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
+/* Container */
 .signup-container {
-    background: white;
-    padding: 2rem 3rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
 }
 
 .signup-container h2 {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     text-align: center;
+    color: #333333;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-group {
+    margin-bottom: 16px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
     color: #333;
 }
 
-form p {
-    margin-bottom: 15px;
-}
-
-button {
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select,
+form textarea {
     width: 100%;
-    padding: 10px;
-    background-color: #0056b3;
-    color: white;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+    font-size: 15px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit button */
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background-color: #004094;
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
-a {
-    color: #0056b3;
+/* Links and text */
+.signup-container p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.signup-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+.signup-container .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 25px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 15px;
+    }
 }

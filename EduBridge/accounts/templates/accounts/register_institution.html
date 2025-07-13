@@ -18,7 +18,7 @@
 
   <main class="signup-section">
     <h2>Create an Institution Account</h2>
-    <form method="post" action="{% url 'accounts:institution_signup' %}" id="signup-form">
+    <form method="post" action="{% url 'accounts:register_institution' %}" id="signup-form">
       {% csrf_token %}
       <input type="text" name="name" placeholder="Institution Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
