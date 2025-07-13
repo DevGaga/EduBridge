@@ -8,7 +8,7 @@ from .forms import StudentSignupForm, InstitutionSignupForm
 
 # Custom Login View
 class CustomLoginView(LoginView):
-    template_name = 'accounts/created_account.html'  # Fixed typo: was 'create_account.html'
+    template_name = 'accounts/create_account.html'  # Fixed typo: was 'create_account.html'
 
 # Role-Based Dashboard Redirect
 @login_required

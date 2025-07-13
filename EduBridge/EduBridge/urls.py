@@ -12,9 +12,9 @@ from django.conf.urls.static import static
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', include('home.urls')),  # must come last or first, depending on path
+    path('', include('home.urls')), 
 
-    path('', RedirectView.as_view(url='/accounts/login/')),  # or your home page
+    path('', RedirectView.as_view(url='/home/')), 
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('students/', include('students.urls')),
