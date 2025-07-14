@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.views.generic import CreateView
 from .models import User
 from .forms import StudentSignupForm, InstitutionSignupForm
+from students.models import StudentProfile
 
 # Custom account selection page (not actual login)
 class CustomLoginView(LoginView):
@@ -37,6 +38,7 @@ class StudentRegisterView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('students:dashboard')
+
 
 # Institution signup view
 class InstitutionRegisterView(CreateView):
