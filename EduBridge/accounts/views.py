@@ -6,8 +6,9 @@ from django.views.generic import CreateView
 from .models import User
 from .forms import StudentSignupForm, InstitutionSignupForm
 from students.models import StudentProfile
+from institutions.models import Institution  # if using Institution model
 
-# Custom account selection page (not actual login)
+# Account selection page
 class CustomLoginView(LoginView):
     template_name = 'accounts/create_account.html'
 
@@ -18,7 +19,7 @@ class InstitutionLoginView(LoginView):
 class StudentLoginView(LoginView):
     template_name = 'accounts/student_login.html'
 
-# Dashboard redirect based on role
+# Redirect to correct dashboard based on role
 @login_required
 def dashboard_redirect(request):
     if request.user.role == 'student':
@@ -35,10 +36,10 @@ class StudentRegisterView(CreateView):
     template_name = 'accounts/student_signup.html'
 
     def form_valid(self, form):
+        # Pass request.FILES in case the form has FileFields
         user = form.save()
         login(self.request, user)
         return redirect('students:dashboard')
-
 
 # Institution signup view
 class InstitutionRegisterView(CreateView):
