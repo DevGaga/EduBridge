@@ -4,6 +4,36 @@ body, h2, p {
     padding: 0;
 }
 
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-color: #007bff;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.navbar nav a:hover {
+    text-decoration: underline;
+}
+
+/* Body */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f2f5;
@@ -37,10 +67,6 @@ form {
     flex-direction: column;
 }
 
-.form-group {
-    margin-bottom: 16px;
-}
-
 label {
     display: block;
     margin-bottom: 6px;
@@ -48,12 +74,12 @@ label {
     color: #333;
 }
 
+/* Form inputs */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
 input[type="number"],
-input[type="file"],
 select,
 textarea {
     width: 100%;
@@ -71,28 +97,30 @@ textarea:focus {
     outline: none;
 }
 
-/* File input improvements */
+/* File input styling */
 input[type="file"] {
     padding: 8px;
     background-color: #f8f8f8;
     border: 1px dashed #ccc;
     cursor: pointer;
+    border-radius: 6px;
 }
 
-/* Checkbox group styling */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 8px;
+/* Custom file upload label */
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 12px;
 }
 
-.checkbox-group label {
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #444;
+.custom-file-upload:hover {
+    background-color: #e2e6ea;
 }
 
 /* Submit button */

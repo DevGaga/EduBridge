@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Sign Up | EduBridge</title>
-  <link rel="stylesheet" href="{% static 'accounts/student_signup.css' %}" />
+  <link rel="stylesheet" href="{% static 'accounts/css/student_signup.css' %}" />
 </head>
 <body>
   <header class="navbar">
@@ -16,7 +16,7 @@
     </nav>
   </header>
 
-  <main class="signup-section">
+  <main class="signup-container">
     <h2>Create Your Student Account</h2>
 
     {% if form.errors %}
@@ -55,7 +55,7 @@
       <label for="id_supporting_documents">Document Type</label>
       {{ form.supporting_documents }}
 
-      <label for="id_document_file">Upload File</label>
+      <label for="id_document_file" class="custom-file-upload">Upload File</label>
       {{ form.document_file }}
 
       <label for="id_phone">Phone Number</label>
@@ -64,7 +64,8 @@
       <button type="submit">Sign Up</button>
     </form>
   </main>
+
+  <script src="{% static 'accounts/scripts/student_signup.js' %}"></script>
+  <script src="{% static 'accounts/scripts/validation.js' %}"></script>
 </body>
 </html>
-<script src="{% static 'scripts/student_signup.js' %}"></script>
-<script src="{% static 'scripts/validation.js' %}"></script>
