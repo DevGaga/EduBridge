@@ -23,7 +23,7 @@ class StudentLoginView(LoginView):
 @login_required
 def dashboard_redirect(request):
     if request.user.role == 'student':
-        return redirect('students:dashboard')
+        return redirect('students:student_dashboard')
     elif request.user.role == 'institutions':
         return redirect('institutions:dashboard')
     else:
