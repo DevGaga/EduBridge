@@ -18,6 +18,8 @@ urlpatterns = [
 
     # Dashboard redirection
     path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
+    path('student_dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
+
 
     # Logout
     path('logout/', LogoutView.as_view(next_page='accounts:create_account'), name='logout'),

@@ -3,10 +3,11 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.views.generic import CreateView
+from django.urls import reverse
 from .models import User
 from .forms import StudentSignupForm, InstitutionSignupForm
 from students.models import StudentProfile
-from institutions.models import Institution  # if using Institution model
+from institutions.models import Institution
 
 # Account selection page
 class CustomLoginView(LoginView):
@@ -36,10 +37,9 @@ class StudentRegisterView(CreateView):
     template_name = 'accounts/student_signup.html'
 
     def form_valid(self, form):
-        # Pass request.FILES in case the form has FileFields
         user = form.save()
         login(self.request, user)
-        return redirect('students:dashboard')
+        return redirect('students:student_dashboard')
 
 # Institution signup view
 class InstitutionRegisterView(CreateView):
