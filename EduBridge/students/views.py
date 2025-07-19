@@ -9,7 +9,7 @@ from django.utils.timezone import now
 def dashboard(request):
     profile = get_object_or_404(StudentProfile, user=request.user)
     applications = Application.objects.filter(student=profile)
-    return render(request, 'students/dashboard.html', {
+    return render(request, 'students/student_dashboard.html', {
         'profile': profile,
         'applications': applications,
     })
@@ -33,7 +33,7 @@ def apply_to_opportunity(request, opportunity_id):
             opportunity=opportunity,
             cover_letter=cover_letter,
         )
-        return redirect('students:dashboard')
+        return redirect('students:student_dashboard')
 
     return render(request, 'students/apply.html', {
         'opportunity': opportunity
