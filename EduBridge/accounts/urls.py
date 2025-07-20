@@ -1,10 +1,14 @@
 # accounts/urls.py
 from django.urls import path
 from . import views
+from django.contrib.auth.views import LogoutView
 
 app_name = 'accounts'
 
 urlpatterns = [
+
+
+    path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('create-account/', views.CustomLoginView.as_view(), name='create_account'),
     path('student-login/', views.StudentLoginView.as_view(), name='student_login'),
     path('institution-login/', views.InstitutionLoginView.as_view(), name='institution_login'),
