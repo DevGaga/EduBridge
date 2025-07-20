@@ -6,6 +6,6 @@ from .models import Opportunity
 
 def public_list(request):
     opportunities = Opportunity.objects.all().order_by('-created_at')
-    return render(request, 'opportunities/list.html', {
+    return render(request, 'opportunities/opportunities.html', {
         'opportunities': opportunities,
     })

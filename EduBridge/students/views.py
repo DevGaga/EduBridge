@@ -7,8 +7,10 @@ from django.utils.timezone import now
 
 @login_required
 def dashboard(request):
-    profile = get_object_or_404(StudentProfile, user=request.user)
+    # Get or create the student profile to avoid 404
+    profile, created = StudentProfile.objects.get_or_create(user=request.user)
     applications = Application.objects.filter(student=profile)
+
     return render(request, 'students/student_dashboard.html', {
         'profile': profile,
         'applications': applications,
@@ -24,7 +26,9 @@ def opportunity_list(request):
 @login_required
 def apply_to_opportunity(request, opportunity_id):
     opportunity = get_object_or_404(Opportunity, id=opportunity_id)
-    profile = get_object_or_404(StudentProfile, user=request.user)
+    
+    # FIXED: Correct indentation
+    profile, created = StudentProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
         cover_letter = request.POST.get('cover_letter')
