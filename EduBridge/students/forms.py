@@ -37,15 +37,13 @@ class StudentSignupForm(UserCreationForm):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g. 2024'})
     )
 
-    supporting_documents = forms.MultipleChoiceField(
+    supporting_documents = forms.ChoiceField(
         choices=[
             ('cv', 'CV'),
             ('cover_letter', 'Cover Letter'),
             ('resume', 'Resume'),
-            ('recommendation_letter', 'Recommendation Letter'),
+            ('recommendation', 'Recommendation Letter'),
         ],
-        widget=forms.CheckboxSelectMultiple,
-        required=False
     )
 
     document_file = forms.FileField(
@@ -79,8 +77,8 @@ class StudentSignupForm(UserCreationForm):
                 date_of_birth=self.cleaned_data['date_of_birth'],
                 year_of_completion=self.cleaned_data['year_of_completion'],
                 phone=self.cleaned_data['phone'],
-                cv=self.cleaned_data.get('document_file'),  # Optional file
-                supporting_documents=self.cleaned_data.get('supporting_documents', [])
+                document_file=self.cleaned_data.get('document_file'),
+                supporting_documents=self.cleaned_data['supporting_documents']
             )
 
         return user

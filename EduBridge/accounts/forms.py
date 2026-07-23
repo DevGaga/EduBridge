@@ -48,6 +48,7 @@ class InstitutionSignupForm(UserCreationForm):
 class StudentSignupForm(UserCreationForm):
     first_name = forms.CharField(max_length=150, required=True)
     last_name = forms.CharField(max_length=150, required=True)
+    email = forms.EmailField(required=True)
     education_level = forms.ChoiceField(choices=[
         ('high_school', 'High School'),
         ('diploma', 'Diploma'),
@@ -57,21 +58,20 @@ class StudentSignupForm(UserCreationForm):
     ])
     date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     year_of_completion = forms.IntegerField()
-    supporting_documents = forms.MultipleChoiceField(
+    supporting_documents = forms.ChoiceField(
         choices=[
             ('cv', 'CV'),
             ('cover_letter', 'Cover Letter'),
             ('resume', 'Resume'),
             ('recommendation', 'Recommendation Letter'),
         ],
-        widget=forms.CheckboxSelectMultiple
     )
     phone = forms.CharField(max_length=15)
-    cv = forms.FileField(required=False)
+    document_file = forms.FileField(required=False)
 
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -83,13 +83,14 @@ class StudentSignupForm(UserCreationForm):
             user.save()
             StudentProfile.objects.create(
                 user=user,
-                full_name=f"{user.first_name} {user.last_name}",
+                first_name=user.first_name,
+                last_name=user.last_name,
                 education_level=self.cleaned_data['education_level'],
                 date_of_birth=self.cleaned_data['date_of_birth'],
                 year_of_completion=self.cleaned_data['year_of_completion'],
                 supporting_documents=self.cleaned_data['supporting_documents'],
                 phone=self.cleaned_data['phone'],
                 email=user.email,
-                cv=self.cleaned_data.get('cv')
+                document_file=self.cleaned_data.get('document_file')
             )
         return user
