@@ -5,9 +5,9 @@ class OpportunityForm(forms.ModelForm):
     class Meta:
         model = Opportunity
         fields = [
-            'institution',
             'title',
             'opportunity_type',  # This must match the model exactly
+            'field',
             'description',
             'requirements',
             'location',
@@ -22,4 +22,5 @@ class OpportunityForm(forms.ModelForm):
 
         labels = {
             'opportunity_type': 'Type of Opportunity',
+            'field': 'Job Field',
         }

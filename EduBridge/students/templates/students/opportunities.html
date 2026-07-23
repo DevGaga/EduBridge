@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Opportunities | EduBridge</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+  <style>
+    .page-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .opportunity-card {
+      background: #fff;
+      border: 1px solid #d9e1ec;
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: 0 10px 24px rgba(20, 32, 51, 0.06);
+    }
+
+    .learn-more-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #183b66, #102946);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'students:student_dashboard' %}">Dashboard</a>
+      <a href="{% url 'accounts:logout' %}">Logout</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <h2>Available Opportunities</h2>
+    <div class="opportunity-grid">
+      {% for opportunity in opportunities %}
+        <div class="opportunity-card">
+          <h3>{{ opportunity.title }}</h3>
+          <p><strong>Institution:</strong> {{ opportunity.institution }}</p>
+          <p><strong>Type:</strong> {{ opportunity.get_opportunity_type_display }}</p>
+          <p><strong>Location:</strong> {{ opportunity.location }}</p>
+          <p><strong>Deadline:</strong> {{ opportunity.deadline }}</p>
+          <p>{{ opportunity.description|truncatewords:24 }}</p>
+          <a class="learn-more-btn" href="{% url 'opportunities:detail' opportunity.pk %}">More</a>
+        </div>
+      {% empty %}
+        <p>No opportunities available right now.</p>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

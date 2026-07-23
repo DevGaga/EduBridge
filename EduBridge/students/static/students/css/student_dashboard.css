@@ -1,4 +1,14 @@
-/* Reset */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #142033;
+  --muted: #5f6c84;
+  --border: #d9e1ec;
+  --primary: #183b66;
+  --primary-strong: #102946;
+  --accent: #c89b3c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,38 +17,41 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fb;
-  color: #333;
+  background:
+    radial-gradient(circle at top left, rgba(24, 59, 102, 0.08), transparent 34%),
+    linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
   line-height: 1.6;
 }
 
-/* Navbar */
 .navbar {
-  background-color: #002f6c;
+  background: rgba(16, 41, 70, 0.94);
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(16, 41, 70, 0.18);
 }
 
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .navbar nav a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.88);
   margin-left: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .navbar nav a:hover {
-  color: #f9c74f;
+  color: white;
 }
 
-/* Dashboard Main */
 .dashboard {
   padding: 2rem;
 }
@@ -47,8 +60,10 @@ body {
   background: #ffffff;
   padding: 2rem;
   margin-bottom: 2rem;
-  border-left: 6px solid #2a9d8f;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(20, 32, 51, 0.06);
 }
 
 .features {
@@ -60,48 +75,42 @@ body {
 .feature-card {
   background: #ffffff;
   padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid #dee2e6;
+  border-radius: 18px;
+  border: 1px solid var(--border);
   transition: transform 0.2s;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 24px rgba(20, 32, 51, 0.06);
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .feature-card h3 {
   margin-bottom: 0.5rem;
-  color: #264653;
+  color: var(--primary);
 }
 
 .feature-card p {
   margin-bottom: 1rem;
-  color: #555;
+  color: var(--muted);
 }
 
 .btn {
   padding: 0.5rem 1rem;
-  background-color: #2a9d8f;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 999px;
   display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #21867a;
 }
 
 .btn.disabled {
-  background-color: #ccc;
+  background: #c5cbd6;
   pointer-events: none;
 }
 
-/* Footer */
 .footer {
-  background-color: #002f6c;
+  background: rgba(16, 41, 70, 0.94);
   color: white;
   text-align: center;
   padding: 1rem;

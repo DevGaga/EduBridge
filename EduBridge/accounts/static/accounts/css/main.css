@@ -1,130 +1,183 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Navbar */
-.navbar {
-  background-color: #1e90ff;
-  color: white;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.navbar h1 {
-  font-size: 24px;
-}
-
-.navbar nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 500;
-}
-
-.navbar nav a:hover {
-  text-decoration: underline;
-}
-
-/* Login Section */
-.login-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-
-.login-section h2 {
-  margin-bottom: 20px;
-  font-size: 28px;
-  color: #333;
-}
-
-form {
-  width: 100%;
-  max-width: 400px;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-form p {
-  margin-bottom: 15px;
-}
-
-form label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  transition: border 0.3s ease;
-}
-
-form input:focus {
-  border-color: #1e90ff;
-  outline: none;
-}
-
-button[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #0d6efd;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  :root {
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --text: #142033;
+    --muted: #5f6c84;
+    --border: #d9e1ec;
+    --primary: #183b66;
+    --primary-strong: #102946;
+    --accent: #c89b3c;
+    --danger: #b54747;
   }
 
-  .navbar nav {
-    margin-top: 10px;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(24, 59, 102, 0.08), transparent 34%),
+      linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .navbar {
+    background: rgba(16, 41, 70, 0.94);
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(16, 41, 70, 0.18);
+  }
+
+  .navbar h1 {
+    font-size: 1.5em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .navbar nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: bold;
+  }
+
+  .navbar nav a:hover {
+    color: white;
+  }
+
+  .signup-section,
+  .login-section {
+    max-width: 460px;
+    background: white;
+    margin: 3em auto;
+    padding: 2em;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 38px rgba(20, 32, 51, 0.08);
+  }
+
+  .signup-section h2,
+  .login-section h2 {
+    text-align: center;
+    color: var(--primary-strong);
+    margin-bottom: 1.5em;
   }
 
   form {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
 
-  .login-section h2 {
-    font-size: 22px;
+  form input,
+  form select {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 1em;
+    background: #fbfcfe;
   }
-}
+
+  form input:focus,
+  form select:focus {
+    outline: none;
+    border-color: rgba(24, 59, 102, 0.45);
+    box-shadow: 0 0 0 4px rgba(24, 59, 102, 0.08);
+  }
+
+  form button {
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .dashboard {
+    padding: 2em;
+  }
+
+  .post-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #b88420);
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    cursor: pointer;
+  }
+
+  .opportunity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .opportunity-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    padding: 1.5em;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(20, 32, 51, 0.06);
+  }
+
+  .card-actions {
+    margin-top: 1em;
+  }
+
+  .card-actions button {
+    margin-right: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .edit-btn {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .delete-btn {
+    background-color: var(--danger);
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navbar nav a {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+
+    .signup-section,
+    .login-section,
+    .dashboard {
+      margin: 1.5em 1em;
+      padding: 1.5em;
+    }
+
+    .opportunity-list {
+      grid-template-columns: 1fr;
+    }
+  }

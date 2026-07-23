@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ opportunity.title }} | EduBridge</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+  <style>
+    .detail-shell {
+      max-width: 920px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border: 1px solid #d9e1ec;
+      border-radius: 22px;
+      box-shadow: 0 14px 38px rgba(20, 32, 51, 0.08);
+    }
+
+    .detail-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .detail-meta span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: #183b66;
+      background: rgba(24, 59, 102, 0.08);
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .detail-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .detail-box {
+      background: #f8fafc;
+      border: 1px solid #d9e1ec;
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .detail-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>EduBridge</h1>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'opportunities:opportunities' %}">Browse</a>
+      <a href="{% url 'accounts:create_account' %}">Login</a>
+    </nav>
+  </header>
+
+  <main class="detail-shell">
+    <div class="detail-meta">
+      <span>{{ opportunity.get_opportunity_type_display }}</span>
+      <span>{{ opportunity.get_field_display }}</span>
+    </div>
+    <h2>{{ opportunity.title }}</h2>
+    <p><strong>Institution:</strong> {{ opportunity.institution }}</p>
+    <p><strong>Location:</strong> {{ opportunity.location }}</p>
+    <p><strong>Deadline:</strong> {{ opportunity.deadline }}</p>
+
+    <div class="detail-grid">
+      <div class="detail-box">
+        <h3>Description</h3>
+        <p>{{ opportunity.description }}</p>
+      </div>
+      <div class="detail-box">
+        <h3>Requirements</h3>
+        <p>{{ opportunity.requirements }}</p>
+      </div>
+    </div>
+
+    <div class="detail-actions">
+      <a class="btn-inline" href="{% url 'students:apply' opportunity.pk %}">Apply Now</a>
+      <a class="btn-secondary" href="{% url 'opportunities:opportunities' %}">Back to Listings</a>
+    </div>
+  </main>
+</body>
+</html>

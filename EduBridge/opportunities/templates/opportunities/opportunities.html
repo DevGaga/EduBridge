@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Opportunities | EduBridge</title>
-  <link rel="stylesheet" href="style/main.css" />
-  <link rel="stylesheet" href="style/opportunities.css" />
-</head>
-<body>
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Opportunities | EduBridge</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'opportunities/css/opportunities.css' %}" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>EduBridge</h1>
+      <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'students:student_dashboard' %}">Dashboard</a>
+        <a href="{% url 'institutions:create_opportunity' %}">Submit</a>
+        <a href="{% url 'accounts:create_account' %}">Login</a>
+      </nav>
+    </header>
 
-  <!-- ✅ Navbar -->
-  <header class="navbar">
-    <h1>EduBridge</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="submit.html">Submit</a>
-      <a href="create_account.html">Login</a>
-    </nav>
-  </header>
+    <section class="page-hero">
+      <h2>Scholarships, Jobs, and Internships</h2>
+      <p>Search live posts by title, institution, location, or job field.</p>
+    </section>
 
-  <!-- ✅ Page Hero Section -->
-  <section class="page-hero">
-    <h2>Scholarships & Internship Opportunities</h2>
-    <p>Explore verified opportunities curated for African students and graduates.</p>
-  </section>
+    <main class="opportunities-page">
+      <form class="search-bar opportunity-search" method="get" action="{% url 'opportunities:opportunities' %}">
+        <input type="search" name="q" placeholder="Search by title or institution" value="{{ query }}" />
+        <select name="field">
+          <option value="">All fields</option>
+          {% for value, label in field_choices %}
+            <option value="{{ value }}" {% if selected_field == value %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Search</button>
+      </form>
 
-  <!-- ✅ Opportunity Grid -->
-  <main class="opportunities-page">
-    <div class="opportunity-grid">
-      <!-- Opportunity Card 1 -->
-      <div class="opportunity-card">
-        <h3>Mandela Rhodes Scholarship</h3>
-        <p><strong>Organization:</strong> Mandela Rhodes Foundation</p>
-        <p><strong>Deadline:</strong> August 20, 2025</p>
-        <p>Postgraduate scholarship for leadership and academic excellence in Africa.</p>
-        <a class="learn-more-btn" href="#">Learn More</a>
+      <div class="opportunity-grid">
+        {% for opportunity in opportunities %}
+          <article class="opportunity-card">
+            <div class="card-meta">
+              <span>{{ opportunity.get_opportunity_type_display }}</span>
+              <span>{{ opportunity.get_field_display }}</span>
+            </div>
+            <h3>{{ opportunity.title }}</h3>
+            <p><strong>Organization:</strong> {{ opportunity.institution }}</p>
+            <p><strong>Location:</strong> {{ opportunity.location }}</p>
+            <p><strong>Deadline:</strong> {{ opportunity.deadline }}</p>
+            <p>{{ opportunity.description|truncatewords:28 }}</p>
+            <a class="learn-more-btn" href="{% url 'opportunities:detail' opportunity.pk %}">More</a>
+          </article>
+        {% empty %}
+          <p>No opportunities are available right now.</p>
+        {% endfor %}
       </div>
+    </main>
 
-      <!-- Opportunity Card 2 -->
-      <div class="opportunity-card">
-        <h3>AfDB Coding Internship</h3>
-        <p><strong>Organization:</strong> African Development Bank</p>
-        <p><strong>Deadline:</strong> July 30, 2025</p>
-        <p>Join AfDB’s digital training and work on real-world software projects.</p>
-        <a class="learn-more-btn" href="#">Learn More</a>
-      </div>
-
-      <!-- More cards will be dynamically inserted here later -->
-    </div>
-  </main>
-
-  <!-- ✅ Footer -->
-  <footer>
-    <p>&copy; 2025 EduBridge. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+    <footer>
+      <p>&copy; 2026 EduBridge. All rights reserved.</p>
+    </footer>
+  </body>
+  </html>

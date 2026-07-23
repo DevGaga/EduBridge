@@ -1,4 +1,15 @@
-/* ==== GLOBAL STYLES ==== */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #142033;
+  --muted: #5f6c84;
+  --border: #d9e1ec;
+  --primary: #183b66;
+  --primary-strong: #102946;
+  --accent: #c89b3c;
+  --danger: #b54747;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,95 +18,55 @@
 }
 
 body {
-  background-color: #f7fdf9;
-  color: #222;
+  background:
+    radial-gradient(circle at top left, rgba(24, 59, 102, 0.08), transparent 34%),
+    linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
   line-height: 1.6;
 }
 
-/* ==== NAVBAR ==== */
 .navbar {
-  background-color: #4f54e7;
+  background: rgba(16, 41, 70, 0.94);
   padding: 1em 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ccebd7;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(16, 41, 70, 0.18);
 }
 
 .navbar h1 {
   font-size: 1.5em;
-  color: rgb(217, 238, 253);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .navbar nav a {
   margin-left: 15px;
   text-decoration: none;
-  color: hsl(184, 100%, 92%);
+  color: rgba(255, 255, 255, 0.88);
   font-weight: bold;
 }
 
 .navbar nav a:hover {
-  text-decoration: underline;
+  color: white;
 }
 
-/* ==== SIGNUP SECTION ==== */
-.signup-section {
-  max-width: 400px;
+.login-section {
+  max-width: 460px;
   background: white;
   margin: 3em auto;
   padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.signup-section h2 {
-  text-align: center;
-  color: rgb(93, 39, 194);
-  margin-bottom: 1.5em;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-form input,
-form select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1em;
-}
-
-form button {
-  padding: 10px;
-  background-color: rgb(73, 87, 235);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background-color: #045e26;
-}
-
-/* ==== LOGIN SECTION ==== */
-.login-section {
-  max-width: 400px;
-  margin: 2em auto;
-  padding: 2em;
-  background: #f0fdf4;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 38px rgba(20, 32, 51, 0.08);
 }
 
 .login-section h2 {
   text-align: center;
-  margin-bottom: 1em;
+  color: var(--primary-strong);
+  margin-bottom: 1.5em;
 }
 
 #login-form {
@@ -106,32 +77,38 @@ form button:hover {
 
 #login-form input {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   font-size: 1em;
+  background: #fbfcfe;
+}
+
+#login-form input:focus {
+  outline: none;
+  border-color: rgba(24, 59, 102, 0.45);
+  box-shadow: 0 0 0 4px rgba(24, 59, 102, 0.08);
 }
 
 #login-form button {
   padding: 10px;
-  background-color: green;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* ==== DASHBOARD STYLES ==== */
 .dashboard {
   padding: 2em;
 }
 
 .post-btn {
-  background-color: green;
+  background: linear-gradient(135deg, var(--accent), #b88420);
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 12px;
   font-weight: bold;
   margin-bottom: 1.5em;
   cursor: pointer;
@@ -145,14 +122,11 @@ form button:hover {
 
 .opportunity-card {
   background: white;
-  border-left: 5px solid green;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
   padding: 1.5em;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.opportunity-card h3 {
-  margin-top: 0;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(20, 32, 51, 0.06);
 }
 
 .card-actions {
@@ -168,16 +142,15 @@ form button:hover {
 }
 
 .edit-btn {
-  background-color: orange;
+  background-color: var(--accent);
   color: white;
 }
 
 .delete-btn {
-  background-color: red;
+  background-color: var(--danger);
   color: white;
 }
 
-/* ==== RESPONSIVE DESIGN ==== */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;

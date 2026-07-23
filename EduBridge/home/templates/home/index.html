@@ -11,52 +11,78 @@
   <header>
     <h1>EduBridge</h1>
     <nav>
-      <a href="#internships">Internships</a>
-      <a href="#scholarships">Scholarships</a>
+      <a href="#opportunities">Opportunities</a>
+      <a href="#impact">Impact</a>
       <a href="#contact">Contact</a>
       <a href="{% url 'accounts:create_account' %}">Login</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Connecting You to Opportunities</h2>
-    <p>Your gateway to top internships and scholarships worldwide.</p>
-    <a href="#internships" class="btn-primary">Explore Internships</a>
+    <div class="hero-copy">
+      <p class="eyebrow">EduBridge</p>
+      <h2>Connecting students and institutions through trusted opportunities.</h2>
+      <p>Your gateway to scholarships, internships, graduate programs, and professional growth.</p>
+      <div class="hero-actions">
+        <a href="#opportunities" class="btn-primary">Explore Opportunities</a>
+        <a href="{% url 'accounts:create_account' %}" class="btn-secondary">Get Started</a>
+      </div>
+    </div>
   </section>
 
   <main>
-    <section id="internships">
-      <h3>Featured Internships</h3>
+    <section id="opportunities">
+      <div class="section-head">
+        <div>
+          <h3>Featured Opportunities</h3>
+          <p>Live posts from institutions and employers.</p>
+        </div>
+        <form class="search-bar" method="get" action="{% url 'home' %}">
+          <input type="search" name="q" placeholder="Search opportunities, jobs, institutions" value="{{ query }}" />
+          <select name="field">
+            <option value="">All fields</option>
+            {% for value, label in field_choices %}
+              <option value="{{ value }}" {% if selected_field == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
       <div class="cards">
-        <div class="card">
-          <h4>Software Development Intern</h4>
-          <p>Join a leading tech company and gain hands-on experience in software engineering. Remote options available.</p>
-        </div>
-        <div class="card">
-          <h4>Marketing Intern</h4>
-          <p>Work with a dynamic marketing team to build your skills in digital campaigns and social media management.</p>
-        </div>
-        <div class="card">
-          <h4>Data Analyst Intern</h4>
-          <p>Analyze real datasets and contribute to actionable insights for a finance firm. Prior knowledge of Excel required.</p>
-        </div>
+        {% for opportunity in opportunities %}
+          <article class="card opportunity-card">
+            <div class="card-meta">
+              <span>{{ opportunity.get_opportunity_type_display }}</span>
+              <span>{{ opportunity.get_field_display }}</span>
+            </div>
+            <h4>{{ opportunity.title }}</h4>
+            <p><strong>Institution:</strong> {{ opportunity.institution }}</p>
+            <p><strong>Location:</strong> {{ opportunity.location }}</p>
+            <p><strong>Deadline:</strong> {{ opportunity.deadline }}</p>
+            <p>{{ opportunity.description|truncatewords:26 }}</p>
+            <a class="btn-inline" href="{% url 'opportunities:detail' opportunity.pk %}">More</a>
+          </article>
+        {% empty %}
+          <p class="empty-state">No opportunities match your search yet.</p>
+        {% endfor %}
       </div>
     </section>
 
-    <section id="scholarships">
-      <h3>Top Scholarships</h3>
+    <section id="impact">
+      <h3>Why EduBridge</h3>
       <div class="cards">
         <div class="card">
-          <h4>Global Leaders Scholarship</h4>
-          <p>Full tuition and stipend for students showing exceptional leadership potential. Deadline: Oct 31.</p>
+          <h4>Trusted Listings</h4>
+          <p>Clear opportunity details, deadlines, and requirements in one place.</p>
         </div>
         <div class="card">
-          <h4>STEM Excellence Award</h4>
-          <p>Supports students pursuing degrees in Science, Technology, Engineering, and Math. Renewable for 4 years.</p>
+          <h4>Role-Based Access</h4>
+          <p>Students and institutions get tailored dashboards and workflows.</p>
         </div>
         <div class="card">
-          <h4>Community Impact Scholarship</h4>
-          <p>For students actively involved in community service and development projects. Application open year-round.</p>
+          <h4>Application Tracking</h4>
+          <p>Track submissions, reviews, and status updates without switching platforms.</p>
         </div>
       </div>
     </section>
@@ -64,7 +90,7 @@
 
   <footer id="contact">
     <p>Contact us: info@edubridge.org | +260 123 456 789</p>
-    <p>&copy; 2025 EduBridge. All rights reserved.</p>
+    <p>&copy; 2026 EduBridge. All rights reserved.</p>
   </footer>
 </body>
 </html>

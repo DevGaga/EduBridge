@@ -26,6 +26,6 @@ def create_opportunity(request):
     else:
         form = OpportunityForm()
 
-    return render(request, 'institutions/create_opportunity.html', {
+    return render(request, 'opportunities/create_opportunity.html', {
         'form': form
     })
