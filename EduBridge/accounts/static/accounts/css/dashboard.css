@@ -97,10 +97,22 @@ form button:hover {
   padding: 10px 20px;
   border-radius: 6px;
   font-weight: bold;
-  margin-bottom: 1.5em;
+    background:
+      radial-gradient(circle at top left, rgba(24, 59, 102, 0.08), transparent 34%),
+      linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
   cursor: pointer;
 }
-
+  .post-btn {
+    display: inline-flex;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--accent), #b88420);
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 0.85rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+  }
 .opportunity-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -109,7 +121,7 @@ form button:hover {
 
 .opportunity-card {
   background: white;
-  border-left: 5px solid green;
+    border-top: 4px solid var(--primary);
   padding: 1.5em;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);

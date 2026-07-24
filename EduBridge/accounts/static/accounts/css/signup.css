@@ -52,32 +52,6 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-.signup-section h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  font-size: 22px;
-  color: #222;
-}
-
-/* Form Styling */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form select {
-  padding: 12px 14px;
-  margin-bottom: 18px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-  transition: border 0.3s ease;
-}
-
-form input:focus,
 form select:focus {
   border-color: #007bff;
   outline: none;
@@ -97,6 +71,66 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
+/* New Navbar Styling */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #142033;
+  --muted: #5f6c84;
+  --border: #d9e1ec;
+  --primary: #183b66;
+  --primary-strong: #102946;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(24, 59, 102, 0.08), transparent 34%),
+    linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.navbar {
+  width: 100%;
+  background: rgba(16, 41, 70, 0.94);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(16, 41, 70, 0.18);
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.navbar nav a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.navbar nav a:hover {
+  color: white;
+}
+
+.signup-section {
+  max-width: 560px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 38px rgba(20, 32, 51, 0.08);
+}
+
+.signup-section h2 {
+  color: var(--primary-strong);
+}
+
 
 /* Responsive Design */
 @media (max-width: 600px) {

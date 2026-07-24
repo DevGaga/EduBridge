@@ -53,8 +53,9 @@ body {
   color: white;
 }
 
-.login-section {
-  max-width: 460px;
+.login-section,
+.signup-section {
+  max-width: 560px;
   background: white;
   margin: 3em auto;
   padding: 2em;
@@ -63,10 +64,15 @@ body {
   box-shadow: 0 14px 38px rgba(20, 32, 51, 0.08);
 }
 
-.login-section h2 {
+.login-section h2,
+.signup-section h2 {
   text-align: center;
   color: var(--primary-strong);
   margin-bottom: 1.5em;
+}
+
+.login-section {
+  max-width: 460px;
 }
 
 #login-form {
